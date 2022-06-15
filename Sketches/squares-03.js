@@ -88,34 +88,25 @@ const sketch = () => {
         context.moveTo(60, 60);
         context.lineTo(840, 840);
         context.stroke();
-        context.strokeStyle = color;
-
 
         // top right line
         context.moveTo(1640, 60);
         context.lineTo(860, 840);
         context.stroke();
-        context.strokeStyle = color;
-
 
         // bottom left line 
         context.moveTo(60, 840);
         context.lineTo(840, 60);
         context.stroke();
-        context.strokeStyle = color;
-
 
         // bottom right line
         context.moveTo(1640, 840);
         context.lineTo(860, 60);
         context.stroke();
-        context.strokeStyle = color;
 
         function selectRandom(arr) {
             return arr[Math.floor(Math.random() * arr.length)];
         }
-
-
 
     };
 };
