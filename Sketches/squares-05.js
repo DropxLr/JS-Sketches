@@ -25,7 +25,9 @@ const params = {
     // lineCap: 'butt',
 };
 
-// let color = selectRandom(["#20E007", "#85FF75", "#6DFA5A", "#AD1C7D", "#FA5AC5"]);
+const colorA = randomColor();
+const colorB = randomColor();
+const colorC = randomColor();
 
 const sketch = () => {
     return ({ context, width, height, frame }) => {
@@ -82,9 +84,9 @@ const sketch = () => {
             // context.lineCap = params.lineCap;
 
             var gradient = context.createLinearGradient(0, 0, params.gradient, 0);
-            gradient.addColorStop("0", "#20E007");
-            gradient.addColorStop("0.5", "#6DFA5A");
-            gradient.addColorStop("1.0", "#FA5AC5");
+            gradient.addColorStop("0", colorA);
+            gradient.addColorStop("0.5", colorB);
+            gradient.addColorStop("1.0", colorC);
             context.strokeStyle = gradient;
 
 
@@ -133,6 +135,14 @@ const createPane = () => {
 
 function selectRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function randomColor() {
+    return "#" + ((1 << 16) * Math.random() | 0).toString(16);
+}
+
+function compColor(color) {
+    return 0xffffff ^ color;
 }
 
 createPane();
