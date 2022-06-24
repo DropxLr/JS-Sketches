@@ -27,7 +27,6 @@ const params = {
 
 const colorA = randomColor();
 const colorB = randomColor();
-const colorC = randomColor();
 
 const sketch = () => {
     return ({ context, width, height, frame }) => {
@@ -38,7 +37,7 @@ const sketch = () => {
         // use for cirlces
         let a, b;
         let radius = 16;
-        let circleLineScale = 2;
+        // let circleLineScale = 2;
 
         const cols = params.cols;
         const rows = params.rows;
@@ -85,8 +84,8 @@ const sketch = () => {
 
             var gradient = context.createLinearGradient(0, 0, params.gradient, 0);
             gradient.addColorStop("0", colorA);
-            gradient.addColorStop("0.5", colorB);
-            gradient.addColorStop("1.0", colorC);
+            // gradient.addColorStop("0.5", colorB);
+            gradient.addColorStop("1.0", colorB);
             context.strokeStyle = gradient;
 
 
