@@ -29,13 +29,12 @@ const colorA = randomColor();
 const colorB = randomColor();
 
 const sketch = () => {
-    return ({ context, width, height, frame }) => {
+    return ({context, width, height, frame}) => {
         context.fillStyle = 'white';
         context.fillRect(0, 0, width, height);
 
 
         // use for cirlces
-        let a, b;
         let radius = 16;
         // let circleLineScale = 2;
 
@@ -100,12 +99,12 @@ const sketch = () => {
             context.strokeStyle = gradient;
             context.lineWidth = params.circleScale;
             context.stroke();
-            
+
             context.restore();
 
         }
 
-        
+
     };
 };
 
@@ -113,36 +112,35 @@ const createPane = () => {
     const pane = new tweakpane.Pane();
     let folder;
 
-    folder = pane.addFolder({ title: 'Grid' });
-    // folder.addInput(params, 'lineCap', { options: { butt: 'butt', round: 'round', square: 'square' } });
-    folder.addInput(params, 'cols', { min: 2, max: 50, step: 1 });
-    folder.addInput(params, 'rows', { min: 2, max: 50, step: 1 });
-    folder.addInput(params, 'speed', { min: 1, max: 50, step: 1 });
-    folder.addInput(params, 'scaleMin', { min: 1, max: 100 });
-    folder.addInput(params, 'scaleMax', { min: 1, max: 100 });
-    folder.addInput(params, 'gradient', { min: 1, max: 180 });
-    folder.addInput(params, 'circleScale', { min: 1, max: 100 });
-    folder.addInput(params, 'rectSize', { min: 0.1, max: 1 });
+    folder = pane.addFolder({title: 'Grid'});
+    folder.addInput(params, 'cols', {min: 2, max: 50, step: 1});
+    folder.addInput(params, 'rows', {min: 2, max: 50, step: 1});
+    folder.addInput(params, 'speed', {min: 1, max: 50, step: 1});
+    folder.addInput(params, 'scaleMin', {min: 1, max: 100});
+    folder.addInput(params, 'scaleMax', {min: 1, max: 100});
+    folder.addInput(params, 'gradient', {min: 1, max: 180});
+    folder.addInput(params, 'circleScale', {min: 1, max: 100});
+    folder.addInput(params, 'rectSize', {min: 0.1, max: 1});
 
-    folder = pane.addFolder({ title: 'Noise' });
-    folder.addInput(params, 'freq', { min: -0.01, max: 0.01 });
-    folder.addInput(params, 'amp', { min: 0, max: 1 });
+    folder = pane.addFolder({title: 'Noise'});
+    folder.addInput(params, 'freq', {min: -0.01, max: 0.01});
+    folder.addInput(params, 'amp', {min: 0, max: 1});
     folder.addInput(params, 'animate');
     // folder.addInput(params, 'rotate');
-    folder.addInput(params, 'frame', { min: 0, max: 999 });
+    folder.addInput(params, 'frame', {min: 0, max: 999});
 };
 
-function selectRandom(arr) {
+/*function selectRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
-}
+}*/
 
 function randomColor() {
     return "#" + ('00000' + (Math.random() * (1 << 24) | 0).toString(16)).slice(-6);
 }
 
-function compColor(color) {
+/*function compColor(color) {
     return 0xffffff ^ color;
-}
+}*/
 
 createPane();
 canvasSketch(sketch, settings);
