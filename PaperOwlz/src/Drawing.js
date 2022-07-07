@@ -1,4 +1,5 @@
 import paper from 'paper';
+import tweakpane from "tweakpane";
 import Seed from "./Seed";
 
 export default class Drawing {
@@ -9,9 +10,11 @@ export default class Drawing {
 
         this._seed = new Seed("ricky");
 
-        for (let i = 0; i < 100; i++) {
-            var myCircle = new paper.Path.Circle(new paper.Point(window.innerWidth * this._seed.random(i), window.innerHeight * this._seed.random(i * 1.5)), 20);
-            myCircle.fillColor = 'black';
+        let count = 20;
+
+        for (let i = 0; i < count; i++) {
+            let myCircle = new paper.Path.Circle(new paper.Point(window.innerWidth * this._seed.random(i), window.innerHeight * this._seed.random(i * 1.5)), 20);
+            myCircle.fillColor = "#20E007";
         }
     }
 
