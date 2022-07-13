@@ -6,7 +6,9 @@ const settings = {
 
 let text = 'R';
 let fontSize = 1200;
-let fontFamily = 'Serif';
+let fontFamily = 'Sans-Serif';
+
+let manager;
 
 const sketch = () => {
     return ({context, width, height}) => {
@@ -17,8 +19,6 @@ const sketch = () => {
         // context.font = fontSize + 'px ' + fontFamily; Best to use a Template Literal as follows
         context.font = `${fontSize}px ${fontFamily}`;
         context.textBaseline = 'top';
-
-        const text = 'R';
 
         const metrics = context.measureText(text);
         const mx = metrics.actualBoundingBoxLeft * -1;
@@ -41,4 +41,15 @@ const sketch = () => {
     };
 };
 
-canvasSketch(sketch, settings);
+const onKeyUp = (e) => {
+    text = e.key.toUpperCase();
+    manager.render();
+};
+
+document.addEventListener('keyup', onKeyUp);
+
+const start = async () => {
+    manager = await canvasSketch(sketch, settings);
+};
+
+start();
